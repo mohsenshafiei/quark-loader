@@ -1,0 +1,30 @@
+{
+  "name": "quark-loader",
+  "version": "0.0.0",
+  "description": "Loader for webpack to process CSS/SCSS/SASS/LESS files to minimize and compress as much as possible.",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohsenshafiei/quark-loader.git"
+  },
+  "keywords": [
+    "webpack",
+    "webpack-loader",
+    "css-minimizer",
+    "sass-minimizer",
+    "less-minimizer",
+    "css-modules",
+    "css-loader",
+    "sass-loader",
+    "less-loader"
+  ],
+  "author": "Mohsen Shafiei Tafreshi <mohsenshafieitafreshi@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mohsenshafiei/quark-loader/issues"
+  },
+  "homepage": "https://github.com/mohsenshafiei/quark-loader#readme"
+}
