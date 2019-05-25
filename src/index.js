@@ -1,4 +1,6 @@
-exports.module = {
+function quarkLoader (content) {
   // eslint-disable-next-line
-  print: () => console.log('hello quark-loader'),
-};
+  debugger;
+  return content;
+}
+module.exports = quarkLoader;
