@@ -1,21 +1,36 @@
 # QUARK-LOADER
 
-#### Loader for webpack to process CSS/SCSS/SASS/LESS files to minimize and compress as much as possible.
+##### Loader for `webpack` to process `css/sass/less/scss` files to minimize and compress as much as possible.
 
-### PROBLEM OR WHY WE SHOULD USE THIS LIBRARY
+##### Getting Started
 
-### SOLUTION
+To begin you'll need to install `quark-loader`
 
-### INSTALLATION
+```bash
+npm install --save-dev quark-loader
+```
+Then add the plugin to your webpack config. For example:
 
-### API DOCUMENTATION
+```javascript
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'quark-loader'],
+      },
+    ],
+  },
+};
+```
 
-### EXAMPLES
+##### Options
+| Name | Type | Default | Description
+| --- | --- | --- | --- |
+| --- | --- | --- | --- |
+| --- | --- | --- | --- |
 
-### TUTORIALS
 
-### BLOGPOSTS
+##### Tutorials
 
-### SCREENCASTS
-
-### TALKS
+[Using Quark-Loader to minimize css files](https://medium.com)
