@@ -1,6 +1,6 @@
 # QUARK-LOADER
 
-##### Loader for `webpack` to process `CSS/SCSS/SASS/LESS` files to minimize and compress as much as possible.
+##### Loader for `webpack` to process `css/sass/less/scss` files to minimize and compress as much as possible.
 
 ##### Getting Started
 
