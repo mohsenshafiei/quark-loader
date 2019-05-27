@@ -1,7 +1,7 @@
 {
   "name": "quark-loader",
   "version": "0.0.0",
-  "description": "Loader for webpack to process CSS/SCSS/SASS/LESS files to minimize and compress as much as possible.",
+  "description": "Loader for webpack to process CSS files to minimize and compress as much as possible.",
   "main": "dist/index.js",
   "scripts": {
     "commit": "git-cz",
