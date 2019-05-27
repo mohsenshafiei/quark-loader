@@ -4,4 +4,135 @@
   bottom: 0;
   left: 0;
   right: 0;
+  width: 80px;
+  height: 300px;
+  border: #c3c3c3 1px solid;
+}
+
+.wrapper {
+  top: 0;
+}
+
+.navbar {
+  top: 0;
+}
+
+.pagination {
+  top: 0;
+}
+
+.css-properties {
+  align-content: center;
+  align-self: center;
+  align-items: baseline;
+  backface-visibility: hidden;
+  background-attachment: fixed;
+  background-color: red;
+  background-blend-mode: lighten;
+  background-clip: border-box;
+  background-color: inherit;
+  background-origin: border-box;
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: 2px solid red;
+  border-bottom: 2px solid red;
+  border-radius: 25%;
+  border-bottom-style: inset;
+  border-bottom-width: thick;
+  border-collapse: collapse;
+  border-color: red;
+  bottom: 30px;
+  box-decoration-break: clone;
+  box-sizing: border-box;
+  caption-side: bottom;
+  clear: both;
+  clip: auto;
+  color: red;
+  column-count: 3;
+  column-fill: auto;
+  column-gap: normal;
+  column-span: all;
+  column-width: inherit;
+  content: no-close-quote;
+  counter-increment: inherit;
+  counter-reset: none;
+  cursor: alias;
+  direction: ltr;
+  display: block;
+  empty-cells: hide;
+  filter: none;
+  flex: auto;
+  flex-basis: auto;
+  flex-direction: column;
+  flex-flow: column;
+  flex-wrap: nowrap;
+  float: left;
+  font-family: 'Arial';
+  font-size: 10px;
+  font-size-adjust: auto;
+  font-stretch: condensed;
+  font-style: italic;
+  font-variant: small-caps;
+  font-weight: 400;
+  hanging-punctuation: allow-end;
+  height: 30px;
+  hyphens: auto;
+  isolation: auto;
+  justify-content:
+  left:30px;
+  letter-spacing: 30px;
+  line-height: 30px;
+  margin: 2px;
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  max-width: 30px;
+  max-height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  mix-blend-mode: lighten;
+  object-fit: contain;
+  object-position: left;
+  opacity: inherit;
+  outline: inherit;
+  outline-color: invert;
+  overflow: auto;
+  overflow-x: auto;
+  overflow-y: scroll;
+  padding: 2px;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  page-break-after: always;
+  page-break-inside: avoid;
+  page-break-before: avoid;
+  perspective: none;
+  perspective-origin: bottom;
+  pointer-events: painted;
+  position: absolute;
+  quotes: none;
+  resize: horizontal;
+  right: 20px;
+  scroll-behavior: smooth;
+  tab-size: 20px;
+  table-layout: fixed;
+  text-align: center;
+  text-align-last: center;
+  text-decoration: overline;
+  text-decoration-color: red;
+  text-shadow: black;
+  top: 20px;
+  unicode-bidi: bidi-override;
+  user-select: contain;
+  vertical-align: bottom;
+  visibility: hidden;
+  white-space: normal;
+  width: 30px;
+  word-break: break-all;
+  word-spacing: normal;
+  word-wrap: break-word;
+  z-index: 100px;
 }
