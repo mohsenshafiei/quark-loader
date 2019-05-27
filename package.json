@@ -1,11 +1,12 @@
 {
   "name": "quark-loader",
   "version": "0.0.0",
-  "description": "Loader for webpack to process CSS/SCSS/SASS/LESS files to minimize and compress as much as possible.",
+  "description": "Loader for webpack to process CSS files to minimize and compress as much as possible.",
   "main": "dist/index.js",
   "scripts": {
     "commit": "git-cz",
     "prebuild": "rimraf dist .nyc_output coverage",
+    "debug": "sudo node-nightly --inspect-brk ./node_modules/webpack/bin/webpack.js",
     "build": "npm-run-all --parallel build:*",
     "build:main": "babel --copy-files --out-dir dist src",
     "build:umd": "webpack --output-filename index.umd.js --mode=development",
