@@ -5,9 +5,10 @@ const loader = path.resolve(__dirname, 'src');
 
 module.exports = {
   context,
+  mode: 'development',
   entry: './index.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dev'),
     libraryTarget: 'umd',
     library: 'console-log'
   },

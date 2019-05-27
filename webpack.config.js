@@ -5,6 +5,9 @@ const context = path.resolve(__dirname, 'src');
 module.exports = {
   context,
   entry: './index.js',
+  node: {
+    fs: 'empty'
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     libraryTarget: 'umd',
