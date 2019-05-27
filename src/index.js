@@ -7,10 +7,10 @@ const dist = path.resolve(__dirname, '../dist/style.css');
 const file = fs.createWriteStream(dist);
 
 function quarkLoader (content) {
-  let template = '';
-  let declaration = '';
-  let classString = '';
-  let classSelector = '';
+  let value = '';
+  let property = '';
+  let atomic = '';
+  let selector = '';
   const ast = csstree.parse(content);
   const astClone = csstree.toPlainObject(csstree.clone(ast));
   csstree.walk(astClone, node => {
@@ -40,11 +40,11 @@ function quarkLoader (content) {
         break;
       }
       case nodeTypes.ClassSelector.type: {
-        const style = `.${classSelector} {\n ${classString} ${`@composes: ${declaration}--${template} from 'styles'; \n`}}\n`;
+        const style = `.${selector} {\n${atomic}${`@composes: ${property}--${value} from 'modules';\n`}}\n`;
         file.write(style);
-        classSelector = node.name;
-        classString = '';
-        template = '';
+        selector = node.name;
+        atomic = '';
+        value = '';
         break;
       }
       case nodeTypes.Combinator.type: {
@@ -55,11 +55,11 @@ function quarkLoader (content) {
       }
       case nodeTypes.Declaration.type: {
         nodeTypes.Declaration.attributes.map(attribute => {
-          if (declaration !== '' && template !== '') {
-            classString += `@composes: ${declaration}--${template} from 'styles'; \n`;
+          if (property !== '' && value !== '') {
+            atomic += `@composes: ${property}--${value} from 'modules';\n`;
           }
-          template = '';
-          declaration = node[attribute];
+          value = '';
+          property = node[attribute];
           return true;
         });
         break;
@@ -69,7 +69,7 @@ function quarkLoader (content) {
       }
       case nodeTypes.Dimension.type: {
         nodeTypes.Dimension.attributes.map(attribute => {
-          template += node[attribute];
+          value += node[attribute];
           return false;
         });
         break;
@@ -79,7 +79,7 @@ function quarkLoader (content) {
       }
       case nodeTypes.HexColor.type: {
         nodeTypes.HexColor.attributes.map(attribute => {
-          template += `${node[attribute]}-`;
+          value += `${node[attribute]}-`;
           return false;
         });
         break;
@@ -89,7 +89,7 @@ function quarkLoader (content) {
       }
       case nodeTypes.Identifier.type: {
         nodeTypes.Identifier.attributes.map(attribute => {
-          template += node[attribute];
+          value += node[attribute];
           return false;
         });
         break;
@@ -108,7 +108,7 @@ function quarkLoader (content) {
       }
       case nodeTypes.Number.type: {
         nodeTypes.Number.attributes.map(attribute => {
-          template += node[attribute];
+          value += node[attribute];
           return false;
         });
         break;
@@ -118,14 +118,14 @@ function quarkLoader (content) {
       }
       case nodeTypes.Parentheses.type: {
         nodeTypes.Parentheses.attributes.map(attribute => {
-          template += node[attribute];
+          value += node[attribute];
           return false;
         });
         break;
       }
       case nodeTypes.Percentage.type: {
         nodeTypes.Percentage.attributes.map(attribute => {
-          template += node[attribute];
+          value += node[attribute];
           return false;
         });
         break;
@@ -153,7 +153,7 @@ function quarkLoader (content) {
       }
       case nodeTypes.String.type: {
         nodeTypes.String.attributes.map(attribute => {
-          template += node[attribute];
+          value += node[attribute];
           return false;
         });
         break;
@@ -180,11 +180,11 @@ function quarkLoader (content) {
         break;
     }
   });
-  const style = `.${classSelector} {\n ${classString}  ${`@composes: ${declaration}--${template} from 'styles'; \n`} }\n`;
+  const style = `.${selector} {\n${atomic}${`@composes: ${property}--${value} from 'modules';\n`}}\n`;
   file.write(style);
-  template = '';
-  classSelector = '';
-  classString = '';
+  value = '';
+  selector = '';
+  atomic = '';
   return content;
 }
 
