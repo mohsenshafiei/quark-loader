@@ -1,0 +1,9 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "compress": {
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}

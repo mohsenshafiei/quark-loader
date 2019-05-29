@@ -109,7 +109,9 @@
     }
   },
   "dependencies": {
-    "postcss": "^7.0.16"
+    "loader-utils": "1.2.3",
+    "postcss": "^7.0.16",
+    "schema-utils": "1.0.0"
   },
   "publishConfig": {
     "access": "restricted"

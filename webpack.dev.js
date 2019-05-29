@@ -25,7 +25,12 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: 'quark-loader'
+        use: {
+          loader: 'quark-loader',
+          options: {
+            compress: true
+          }
+        }
       },
       {
         test: /\.js$/,
