@@ -5,7 +5,7 @@ function quarkLoader (content) {
   const plugins = [];
   const options = {
     compress: true,
-  }
+  };
 
   if (options.compress === true) {
     plugins.push(moduleParser);
