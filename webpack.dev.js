@@ -6,6 +6,7 @@ const loader = path.resolve(__dirname, 'src');
 module.exports = {
   context,
   entry: './index.js',
+  mode: 'development',
   output: {
     path: path.resolve(__dirname, 'dist'),
     libraryTarget: 'umd',
@@ -15,6 +16,9 @@ module.exports = {
     alias: {
       'quark-loader': loader
     }
+  },
+  node: {
+    fs: 'empty'
   },
   devtool: 'source-map',
   module: {

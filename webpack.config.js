@@ -10,6 +10,9 @@ module.exports = {
     libraryTarget: 'umd',
     library: 'console-log'
   },
+  node: {
+    fs: 'empty'
+  },
   devtool: 'source-map',
   module: {
     rules: [

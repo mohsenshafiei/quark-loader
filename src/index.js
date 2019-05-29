@@ -1,5 +1,17 @@
+const postcss = require('postcss');
+const moduleParser = require('./plugins').moduleComposer;
+
 function quarkLoader (content) {
-  // eslint-disable-next-line
+  const plugins = [];
+  const options = {
+    compress: true,
+  };
+
+  if (options.compress === true) {
+    plugins.push(moduleParser);
+  }
+  postcss(plugins).process(content).then(result => console.log('end'));
+
   debugger;
   return content;
 }

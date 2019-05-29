@@ -1,7 +1,11 @@
+.maintainer {
+  top: 100px;
+  left: 100px;
+  right: 100px;
+  transform: translate(-50%);
+  float: left;
+}
+
 .container {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+   border: 2px solid red;
 }
