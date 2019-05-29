@@ -17,6 +17,9 @@ module.exports = {
       'quark-loader': loader
     }
   },
+  node: {
+    fs: 'empty'
+  },
   devtool: 'source-map',
   module: {
     rules: [
