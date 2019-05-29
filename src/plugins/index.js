@@ -1,5 +1,5 @@
-const moduleParser = require('./postcss-module-parser');
+const moduleComposer = require('./postcss-module-composer');
 
 module.exports = {
-  moduleParser
+  moduleComposer
 }
