@@ -109,6 +109,7 @@
     }
   },
   "dependencies": {
+    "hashmap": "2.3.0",
     "loader-utils": "1.2.3",
     "postcss": "^7.0.16",
     "schema-utils": "1.0.0"
