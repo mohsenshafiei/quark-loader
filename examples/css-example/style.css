@@ -7,5 +7,10 @@
 }
 
 .container {
-   border: 2px solid red;
+  top: 100px;
+  border: 2px solid red;
+}
+
+.wrapper {
+  top: 100px;
 }
