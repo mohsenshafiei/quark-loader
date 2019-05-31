@@ -10,32 +10,46 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     libraryTarget: 'umd',
-    library: 'console-log'
+    library: 'console-log',
   },
   resolveLoader: {
     alias: {
-      'quark-loader': loader
-    }
+      'quark-loader': loader,
+    },
   },
   node: {
-    fs: 'empty'
+    fs: 'empty',
   },
   devtool: 'source-map',
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: {
-          loader: 'quark-loader',
-          options: {
-            compress: true
-          }
-        }
+        use: [
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localIdentName: '[hash:base64:3]',
+              importLoaders: 3,
+            },
+          },
+          {
+            loader: 'quark-loader',
+            options: {
+              compress: true,
+            },
+          },
+          {
+            loader: 'sass-loader',
+          },
+        ],
       },
       {
         test: /\.js$/,
-        use: 'babel-loader'
-      }
-    ]
-  }
+        exclude: /node_modules/,
+        use: 'babel-loader',
+      },
+    ],
+  },
 };
