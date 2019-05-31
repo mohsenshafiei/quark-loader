@@ -6,26 +6,37 @@ const { createModuleComposer, createModuleSelector, createModuleDeclaration } = 
 
 const composerDist = path.resolve(__dirname, '../../dist/composer.css');
 const consumerDist = path.resolve(__dirname, '../../dist/consumer.css');
-
+const mainDist = path.resolve(__dirname, '../../dist/main.css');
 const composer = fs.createWriteStream(composerDist);
 const consumer = fs.createWriteStream(consumerDist);
-
-module.exports = postcss.plugin('postcss-module-composer', (options = {}) => root => {
+const main = fs.createWriteStream(mainDist);
+module.exports = postcss.plugin('postcss-module-composer', () => (root) => {
   const hashmap = new HashMap();
-  root.walkRules(rule => {
+  let composerString = '';
+  let consumerString = '';
+  root.walkRules((rule) => {
     composer.write(`${rule.selector} {\n`);
-    rule.walkDecls(decl => {
+    composerString += `${rule.selector} {\n`;
+    rule.walkDecls((decl) => {
       composer.write(createModuleComposer(decl.prop, decl.value));
+      composerString += createModuleComposer(decl.prop, decl.value);
       hashmap.set(
         createModuleSelector(decl.prop, decl.value),
-        createModuleDeclaration(decl.prop, decl.value)
+        createModuleDeclaration(decl.prop, decl.value),
       );
     });
-    composer.write(`}\n\n`);
+    composer.write('}\n\n');
+    composerString += '}\n\n';
   });
   hashmap.forEach((value, key) => {
     consumer.write(key);
+    consumerString += key;
     consumer.write(value);
-    consumer.write(`}\n`);
+    consumerString += value;
+    consumer.write('}\n');
+    consumerString += '}\n';
   });
+  const css = consumerString + composerString;
+  main.write(css);
+  return (false);
 });
