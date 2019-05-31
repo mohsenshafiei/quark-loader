@@ -1,4 +1,4 @@
-# QUARK-LOADER
+![GitHub Logo](/public/assets/quark-loader-starfont.png)
 
 ##### Loader for `Webpack` to process `CSS` files to minimize and compress as much as possible.
 
