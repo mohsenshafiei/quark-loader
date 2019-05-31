@@ -5,7 +5,7 @@
 
 ##### Loader for `Webpack` to process `CSS` files to minify and compress as much as possible.
 
-##### Getting Started
+#### Getting Started
 
 To begin you'll need to install `quark-loader`
 
@@ -48,7 +48,7 @@ module.exports = {
 };
 ```
 
-##### How it works
+#### How it works
 
 `quark-loader` process the `CSS` files and replaced our style with a reference to our declarations. In this way, we can remove repetitive styles from our CSS and make it minimum.
 
@@ -101,7 +101,8 @@ module.exports = {
 }
 ```
 - Note that at the end you should compile your styles with [css-loader](https://github.com/webpack-contrib/css-loader).
-##### Tutorials
+
+#### Tutorials
 
 [Using Quark-Loader to minimize css files](https://medium.com)
 
