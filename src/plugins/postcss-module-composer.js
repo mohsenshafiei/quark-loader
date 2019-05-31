@@ -25,8 +25,8 @@ module.exports = postcss.plugin('postcss-module-composer', () => (root) => {
         createModuleDeclaration(decl.prop, decl.value),
       );
     });
-    composer.write('}\n\n');
-    composerString += '}\n\n';
+    composer.write('}\n');
+    composerString += '}\n';
   });
   hashmap.forEach((value, key) => {
     consumer.write(key);
