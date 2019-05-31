@@ -16,7 +16,7 @@ Then add the plugin to your webpack config. For example:
 
 **file.js**
 ```js
-import css from 'file.css';
+import file from 'file.js';
 ```
 
 **webpack.config.js**
