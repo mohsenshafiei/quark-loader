@@ -17,7 +17,7 @@ function quarkLoader(content) {
   postcss(plugins)
     .process(content, { from: undefined })
     .then(() => {
-      const main = path.resolve(__dirname, '../dist/main.css');
+      const main = path.resolve(__dirname, '../dist/quark-loader-output.css');
       fs.readFile(main, (err, source) => {
         if (err) {
           throw err;
