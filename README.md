@@ -12,12 +12,16 @@ To begin you'll need to install `quark-loader`
 ```console
 npm install --save-dev quark-loader
 ```
-Then add the plugin to your webpack config. For example:
+
+<h2 align="center">Examples</h2>
+
+Add the plugin to your webpack config.
 
 **file.js**
 ```js
 import file from 'file.js';
 ```
+Chain the `quark-loader` with [css-loader](https://github.com/webpack-contrib/css-loader) and the [style-loader](https://github.com/webpack-contrib/style-loader) to immediately minimize and apply all styles to the DOM.
 
 **webpack.config.js**
 ```js
@@ -27,6 +31,9 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
+          {
+            loader: 'style-loader'
+          },
           {
             loader: 'css-loader',
             options: {
@@ -47,6 +54,42 @@ module.exports = {
   },
 };
 ```
+
+You can also use the `quark-loader` with [sass-loader](https://github.com/webpack-contrib/sass-loader). For example
+
+```js
+module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localIdentName: '[hash:base64:3]',
+              importLoaders: 3,
+            },
+          },
+          {
+            loader: 'quark-loader',
+            options: {
+              compress: true,
+            },
+          },
+          {
+            loader: 'sass-loader',
+          },
+        ],
+      },
+    ],
+  },
+```
+
+chain the
 
 #### How it works
 
