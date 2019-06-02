@@ -15,7 +15,7 @@
     "report-coverage": "cat ./coverage/lcov.info | codecov",
     "watch:test": "mocha --watch",
     "validate": "npm-run-all --parallel test build",
-    "release": "semantic-release"
+    "release": "semantic-release && npm publish"
   },
   "repository": {
     "type": "git",
