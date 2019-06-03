@@ -1,6 +1,6 @@
 const path = require('path');
 
-const context = path.resolve(__dirname, 'examples/css-example');
+const context = path.resolve(__dirname, 'examples/sass-example');
 const loader = path.resolve(__dirname, 'src');
 
 module.exports = {
@@ -24,7 +24,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.scss$/,
         use: [
           {
             loader: 'css-loader',
