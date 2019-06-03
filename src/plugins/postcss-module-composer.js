@@ -8,6 +8,7 @@ const {
   createModuleDeclaration,
   isGlobal,
   removeSpace,
+  removeNotGlobals,
 } = require('./utils');
 
 const mainDist = path.resolve(__dirname, '../../dist/quark-loader-output.css');
@@ -17,10 +18,11 @@ module.exports = postcss.plugin('postcss-module-composer', () => (root) => {
   let composerString = '';
   let consumerString = '';
   root.walkRules((rule) => {
-    const str = rule.selector;
-    str.split(',').forEach((selector) => {
-      composerString += `${removeSpace(selector)} {\n`;
+    const identifier = rule.selector;
+    let once = false;
+    identifier.split(',').forEach((selector) => {
       if (!isGlobal(removeSpace(selector))) {
+        composerString += `${removeSpace(selector)} {\n`;
         rule.walkDecls((decl) => {
           composerString += createModuleComposer(decl.prop, decl.value);
           hashmap.set(
@@ -28,16 +30,19 @@ module.exports = postcss.plugin('postcss-module-composer', () => (root) => {
             createModuleDeclaration(decl.prop, decl.value),
           );
         });
-      } else {
+        composerString += '}\n';
+      } else if (once === false) {
         rule.walkDecls((decl) => {
-          composerString += createModuleDeclaration(decl.prop, decl.value);
+          const globals = removeNotGlobals(rule.selector);
+          composerString += `${globals} {\n${createModuleDeclaration(decl.prop, decl.value)}`;
           hashmap.set(
             createModuleSelector(decl.prop, decl.value),
             createModuleDeclaration(decl.prop, decl.value),
           );
         });
+        composerString += '}\n';
+        once = true;
       }
-      composerString += '}\n';
     });
   });
   hashmap.forEach((value, key) => {
@@ -47,5 +52,5 @@ module.exports = postcss.plugin('postcss-module-composer', () => (root) => {
   });
   const css = consumerString + composerString;
   main.write(css);
-  return (false);
+  return (true);
 });

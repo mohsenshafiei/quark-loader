@@ -1,7 +1,9 @@
 @import 'margin';
 
-.maintainer {
+html, div, .classic, h1, h2, h3, h4 {
   top: 100px;
+}
+.maintainer {
   left: 100px;
   right: 100px;
   transform: translate(-50%);
