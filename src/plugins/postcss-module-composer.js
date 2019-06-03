@@ -32,9 +32,10 @@ module.exports = postcss.plugin('postcss-module-composer', () => (root) => {
         });
         composerString += '}\n';
       } else if (once === false) {
+        const globals = removeNotGlobals(rule.selector);
+        composerString += `${globals} {\n`;
         rule.walkDecls((decl) => {
-          const globals = removeNotGlobals(rule.selector);
-          composerString += `${globals} {\n${createModuleDeclaration(decl.prop, decl.value)}`;
+          composerString += `${createModuleDeclaration(decl.prop, decl.value)}`;
           hashmap.set(
             createModuleSelector(decl.prop, decl.value),
             createModuleDeclaration(decl.prop, decl.value),
