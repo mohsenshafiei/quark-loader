@@ -1,7 +1,7 @@
 const globalSelector = require('./global');
 
 const regex = /\(|\)|%|\.|#|,|\+|:|"|\/|\/|`|'/g;
-
+const unvalid = /^[\w\s.,]+$/;
 const createModuleComposer = (property, value) => (`\tcomposes: ${property}--${value.replace(/ /g, '-').replace(regex, '')};\n`);
 
 const createModuleDeclaration = (property, value) => (`\t${property}: ${value};\n`);
@@ -11,6 +11,8 @@ const createModuleSelector = (property, value) => (`.${property}--${value.replac
 const isGlobal = selector => globalSelector.includes(selector);
 
 const removeSpace = str => str.trim();
+
+const shouldSkip = str => str.search(unvalid);
 
 const removeNotGlobals = (str) => {
   let result = '';
@@ -28,4 +30,5 @@ module.exports = {
   removeSpace,
   removeNotGlobals,
   isGlobal,
+  shouldSkip,
 };
