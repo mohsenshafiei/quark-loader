@@ -9,6 +9,7 @@ const {
   isGlobal,
   removeSpace,
   removeNotGlobals,
+  shouldSkip,
 } = require('./utils');
 
 const mainDist = path.resolve(__dirname, '../../dist/quark-loader-output.css');
@@ -21,7 +22,7 @@ module.exports = postcss.plugin('postcss-module-composer', () => (root) => {
     const identifier = rule.selector;
     let once = false;
     identifier.split(',').forEach((selector) => {
-      if (!isGlobal(removeSpace(selector))) {
+      if (!isGlobal(removeSpace(selector)) && !shouldSkip(removeSpace(selector))) {
         composerString += `${removeSpace(selector)} {\n`;
         rule.walkDecls((decl) => {
           composerString += createModuleComposer(decl.prop, decl.value);
@@ -32,9 +33,11 @@ module.exports = postcss.plugin('postcss-module-composer', () => (root) => {
         });
         composerString += '}\n';
       } else if (once === false) {
+        const globals = !shouldSkip(rule.selector)
+          ? removeNotGlobals(rule.selector) : rule.selector;
+        composerString += `${globals} {\n`;
         rule.walkDecls((decl) => {
-          const globals = removeNotGlobals(rule.selector);
-          composerString += `${globals} {\n${createModuleDeclaration(decl.prop, decl.value)}`;
+          composerString += `${createModuleDeclaration(decl.prop, decl.value)}`;
           hashmap.set(
             createModuleSelector(decl.prop, decl.value),
             createModuleDeclaration(decl.prop, decl.value),
