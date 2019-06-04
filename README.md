@@ -99,53 +99,33 @@ chain the
 
 **style.css**
 ```css
-.container {
+.a {
   top: 100px;
-  left: 100px;
-  right: 100px;
-  transform: translate(-50%);
-  float: left;
 }
-
-.element {
+.b {
   top: 100px;
-  border: 2px solid red;
+}
+.c {
+  top: 100px;
+}
+.d {
+  top: 100px;
 }
 ```
-
-**result.css**
-```css
-.top--100px {
+**Final Result**
+```CSS
+.t7E {
 	top: 100px;
 }
-.left--100px {
-	left: 100px;
+.BOO {
 }
-.right--100px {
-	right: 100px;
+._1dA {
 }
-.transform--translate-50 {
-	transform: translate(-50%);
+._1rC {
 }
-.float--left {
-	float: left;
-}
-.border--2px-solid-red {
-	border: 2px solid red;
-}
-.container {
-	composes: top--100px;
-	composes: left--100px;
-	composes: right--100px;
-	composes: transform--translate-50;
-	composes: float--left;
-}
-.element {
-	composes: top--100px;
-	composes: border--2px-solid-red;
+._3e1 {
 }
 ```
-- Note that at the end you should compile your styles with [css-loader](https://github.com/webpack-contrib/css-loader).
 
 #### Tutorials
 
