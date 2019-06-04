@@ -112,7 +112,9 @@ chain the
   top: 100px;
 }
 ```
-**Final Result**
+**Let's review what we get at the end**
+
+Extracted css file
 ```CSS
 .t7E {
 	top: 100px;
@@ -126,7 +128,16 @@ chain the
 ._3e1 {
 }
 ```
-
+Without `CSS` extraction
+```js
+exports.locals = {
+	"top--100px": "t7E",
+	"a": "BOO t7E",
+	"b": "_1dA t7E",
+	"c": "_1rC t7E",
+	"d": "_3e1 t7E"
+};
+```
 #### Tutorials
 
 [Using Quark-Loader to minimize css files](https://medium.com)
