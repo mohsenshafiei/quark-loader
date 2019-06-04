@@ -95,56 +95,49 @@ chain the
 
 `quark-loader` process the `CSS` files and replaced our style with a reference to our declarations. In this way, we can remove repetitive styles from our CSS and make it minimum.
 
+![What actually happens?](/public/assets/process.png)
+
 **style.css**
 ```css
-.container {
+.a {
   top: 100px;
-  left: 100px;
-  right: 100px;
-  transform: translate(-50%);
-  float: left;
 }
-
-.element {
+.b {
   top: 100px;
-  border: 2px solid red;
+}
+.c {
+  top: 100px;
+}
+.d {
+  top: 100px;
 }
 ```
+**Let's review what we get at the end**
 
-**result.css**
-```css
-.top--100px {
+Extracted css file
+```CSS
+.t7E {
 	top: 100px;
 }
-.left--100px {
-	left: 100px;
+.BOO {
 }
-.right--100px {
-	right: 100px;
+._1dA {
 }
-.transform--translate-50 {
-	transform: translate(-50%);
+._1rC {
 }
-.float--left {
-	float: left;
-}
-.border--2px-solid-red {
-	border: 2px solid red;
-}
-.container {
-	composes: top--100px;
-	composes: left--100px;
-	composes: right--100px;
-	composes: transform--translate-50;
-	composes: float--left;
-}
-.element {
-	composes: top--100px;
-	composes: border--2px-solid-red;
+._3e1 {
 }
 ```
-- Note that at the end you should compile your styles with [css-loader](https://github.com/webpack-contrib/css-loader).
-
+Without `CSS` extraction
+```js
+exports.locals = {
+	"top--100px": "t7E",
+	"a": "BOO t7E",
+	"b": "_1dA t7E",
+	"c": "_1rC t7E",
+	"d": "_3e1 t7E"
+};
+```
 #### Tutorials
 
 [Using Quark-Loader to minimize css files](https://medium.com)
