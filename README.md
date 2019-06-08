@@ -8,7 +8,7 @@
 [![semantic-release][semantic-release]][semantic-release-url]
 
 
-##### Loader for `Webpack` to process `CSS` files to minify and compress as much as possible.
+##### Loader for `Webpack` to deduplicate, minify and compress `CSS` as much as possible.
 
 #### Getting Started
 
