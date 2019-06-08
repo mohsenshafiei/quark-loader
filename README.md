@@ -117,7 +117,7 @@ module: {
 ```
 **Let's review what we get at the end**
 
-Extracted css file
+Extracted CSS file
 ```CSS
 .t7E {
 	top: 100px;
