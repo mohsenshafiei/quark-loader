@@ -89,8 +89,6 @@ module: {
   },
 ```
 
-chain the
-
 #### How it works
 
 `quark-loader` process the `CSS` files and replaced our style with a reference to our declarations. In this way, we can remove repetitive styles from our CSS and make it minimum.
