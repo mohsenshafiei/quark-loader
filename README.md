@@ -20,7 +20,7 @@ npm install --save-dev quark-loader
 
 <h2 align="center">Examples</h2>
 
-Add the plugin to your webpack config.
+Add the loader to your webpack config.
 
 **file.js**
 ```js
