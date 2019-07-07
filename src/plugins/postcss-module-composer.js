@@ -12,9 +12,10 @@ const {
   shouldSkip,
 } = require('./utils');
 
-const mainDist = path.resolve(__dirname, '../../dist/quark-loader-output.css');
-const main = fs.createWriteStream(mainDist);
+
 module.exports = postcss.plugin('postcss-module-composer', () => (root) => {
+  const mainDist = path.resolve(__dirname, '../../dist/quark-loader-output.css');
+  const main = fs.createWriteStream(mainDist);
   const hashmap = new HashMap();
   let composerString = '';
   let consumerString = '';
